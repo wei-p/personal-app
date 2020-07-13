@@ -1,14 +1,17 @@
-import React from 'react'
-import { Tabs, Form } from 'antd'
+import React, { useState } from 'react'
+import { Tabs, Form, Checkbox, Row } from 'antd'
 import InputItem from '../../components/InputItem'
 import SubmitButton from '../../components/SubmitButton'
-import { UserOutlined, LockOutlined, MobileOutlined, MailTwoTone } from '@ant-design/icons'
+import { UserOutlined, LockOutlined, MobileOutlined, 
+	MailTwoTone, AlipayCircleOutlined, TaobaoCircleOutlined, 
+	WeiboCircleOutlined } from '@ant-design/icons'
 import styles from './index.module.less'
+import { Link } from 'react-router-dom'
 const { TabPane } = Tabs
-
 
 const Login = () => {
 	const [form] = Form.useForm()
+	const [autoLogin, setAutoLogin] = useState(true)
 	const handleFinish = (values) => {
 		console.log(values)
 	}
@@ -82,8 +85,22 @@ const Login = () => {
 							></InputItem>
 						</TabPane>
 					</Tabs>
+					<Row justify='space-between'>
+							<Checkbox 
+								checked={ autoLogin }
+								onChange={ (e) => setAutoLogin(e.target.checked) }
+							>自动登录</Checkbox>
+							<a href='#!'>忘记密码</a>
+					</Row>
 					<SubmitButton>登录</SubmitButton>
 				</Form>
+				<div className={ styles.other }>
+					其他登录方式
+					<AlipayCircleOutlined className={ styles.icon }></AlipayCircleOutlined>
+					<TaobaoCircleOutlined className={ styles.icon }></TaobaoCircleOutlined>
+					<WeiboCircleOutlined className={ styles.icon }></WeiboCircleOutlined>
+					<Link className={ styles.register } to='/register'>注册账户</Link>
+				</div>
 			</div>
 		</div>
   )

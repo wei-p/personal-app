@@ -18,13 +18,14 @@ const InputItem = (props) => {
 				setCount((preSecond) => {
 					if (preSecond <= 1) {
 						setTiming(false) // 不再计时，倒计时结束
-						clearImmediate(interval)
+						clearInterval(interval)
 						return props.countDown || 60  // 结束
 					} 
 					return preSecond - 1
 				})
 			}, 1000)
 		}
+		return () => clearInterval(interval)
 	}, [timing])
 
 	if (name === 'code') {

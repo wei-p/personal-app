@@ -1,3 +1,5 @@
+@import '~antd/es/style/themes/default.less';
+
 .loginContainer {
 	background-image: url('https://images.app.goo.gl/bTrH1geHQav7RZHZ6');
 	background-repeat: no-repeat;
@@ -20,6 +22,24 @@
 					justify-content: center;
 				}
 			}
+		}
+	}
+	.icon {
+		margin-left: 16px;
+		color: @text-color-secondary;
+		font-size: 24px;
+		vertical-align: middle;
+		cursor: pointer;
+		transition: color 0.3s;
+		&:hover {
+			color: @primary-color;
+		}
+	}
+	.other {
+		margin-top: 24px;
+		line-height: 22px;
+		.register {
+			float: right;
 		}
 	}
 }
