@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Input, Form, Button, Row, Col, message } from 'antd'
 import styles from './index.module.less'
 
-const InputItem = (props) => {
+const InputItem = React.forwardRef((props, ref) => {
 	const { name, rules, ...rest } = props
 	const [timing, setTiming] = useState(false) // 是否在倒计时
 	const [count, setCount] = useState(props.countDown || 60) // 倒计时秒数
@@ -26,7 +26,7 @@ const InputItem = (props) => {
 			}, 1000)
 		}
 		return () => clearInterval(interval)
-	}, [timing])
+	}, [timing, props.countDown])
 
 	if (name === 'code') {
 		return (
@@ -51,9 +51,9 @@ const InputItem = (props) => {
 	}
 	return (
 		<Form.Item name={ name } rules={ rules }>
-			<Input { ...rest }></Input>
+			<Input ref={ ref } { ...rest }></Input>
 		</Form.Item>
 	)
-}
+})
 
 export default InputItem
