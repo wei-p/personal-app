@@ -10,6 +10,8 @@ import Projects from './components/Projects'
 import TagList from './components/TagList'
 import { currentUser, fakeList } from './data'
 
+const articleList = fakeList(8)
+
 const operationTabList = [
   {
     key: 'articles',
@@ -40,7 +42,7 @@ const operationTabList = [
 const renderChildrenByTabKey = (tabKey) => {
   switch (tabKey) {
     case 'articles':
-      return <Articles></Articles>
+      return <Articles list={articleList}></Articles>
     case 'applications':
       return <Applications></Applications>
     case 'projects':
