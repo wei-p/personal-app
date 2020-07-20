@@ -1,17 +1,13 @@
 import React from 'react'
 import { List, Tag } from 'antd'
-
 import styles from './index.module.less'
 import { StarTwoTone, LikeOutlined, MessageFilled } from '@ant-design/icons'
+import ArticleListContent from '../ArticleListContent'
 
 const IconText = ({ icon, text }) => (
   <span>
     {icon} {text}
   </span>
-)
-
-const ArticleListContent = ({ data: { content } }) => (
-  <div></div>
 )
 
 const Acticles = ({ list }) => {
