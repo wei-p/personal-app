@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'redux-react-hook'
 import { Input, Form, Button, Row, Col, message } from 'antd'
+import { getCode } from '../../actions/register'
 import styles from './index.module.less'
 
 const InputItem = React.forwardRef((props, ref) => {
+	const dispatch = useDispatch()
 	const { name, rules, ...rest } = props
 	const [timing, setTiming] = useState(false) // 是否在倒计时
 	const [count, setCount] = useState(props.countDown || 60) // 倒计时秒数
 	const handleClickCode = () => {
 		message.success('成功获取验证码1234')
+		dispatch(getCode())
 		setTiming(true) // 计时打开
 	}
 	useEffect(() => {
