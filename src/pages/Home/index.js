@@ -12,6 +12,7 @@ import { currentUser, fakeList } from './data'
 
 const articleList = fakeList(8)
 const applicationList = fakeList(5)
+const projectList = fakeList(10)
 
 const operationTabList = [
   {
@@ -34,7 +35,7 @@ const operationTabList = [
     key: 'projects',
     tab: (
       <span>
-        项目 <span>(1)</span>
+        项目 <span>(10)</span>
       </span>
       )
   }
@@ -47,9 +48,9 @@ const renderChildrenByTabKey = (tabKey) => {
     case 'applications':
       return <Applications list={applicationList}></Applications>
     case 'projects':
-      return <Projects></Projects>
+      return <Projects list={projectList}></Projects>
     default:
-      return <Articles></Articles>
+      return <Articles list={articleList}></Articles>
   }
 }
 
